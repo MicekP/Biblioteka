@@ -2,12 +2,13 @@
 //
 
 #include <iostream>
+#include "Aktorzy.cpp"
 
 int main()
 {
     std::cout << "Hello World!\n";
 
-
+    Menu();
 }
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania

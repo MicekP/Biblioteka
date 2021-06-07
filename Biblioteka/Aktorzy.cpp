@@ -20,7 +20,6 @@ public:
     {
         return Nazwisko;
     }
-    virtual void Wypisz();
 };
 
 class Czytelnik : public Osoba
@@ -49,6 +48,7 @@ public:
 
     static void Dodaj_czytelnik();
 
+    static void Wypisz();
 };
 
 Czytelnik tab_czyt[3];
@@ -109,6 +109,8 @@ public:
     ~Obsluga() {};
 
     static void Dodaj_obsluga();
+
+    static void Wypisz();
 
 };
 
