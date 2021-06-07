@@ -1,3 +1,5 @@
+// inz_op_balagan.cpp : Ten plik zawiera funkcjê „main”. W nim rozpoczyna siê i koñczy wykonywanie programu.
+//
 
 #include <iostream>
 using namespace std;
@@ -18,6 +20,7 @@ public:
     {
         return Nazwisko;
     }
+    virtual void Wypisz();
 };
 
 class Czytelnik : public Osoba
@@ -45,8 +48,6 @@ public:
     ~Czytelnik() {};
 
     static void Dodaj_czytelnik();
-    
-    static void Wypisz();
 
 };
 
@@ -109,7 +110,6 @@ public:
 
     static void Dodaj_obsluga();
 
-    static void Wypisz();
 };
 
 Obsluga tab_obs[3];
