@@ -1,6 +1,3 @@
-// inz_op_balagan.cpp : Ten plik zawiera funkcjê „main”. W nim rozpoczyna siê i koñczy wykonywanie programu.
-//
-
 #include <iostream>
 using namespace std;
 
