@@ -141,6 +141,17 @@
   <ItemGroup>
     <ClCompile Include="Aktorzy.cpp" />
     <ClCompile Include="Biblioteka.cpp" />
+    <ClCompile Include="Karta.cpp" />
+    <ClCompile Include="Ksiazka.cpp" />
+    <ClCompile Include="Rezerwacja.cpp" />
+    <ClCompile Include="Wypozyczenie.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Aktorzy.h" />
+    <ClInclude Include="Karta.h" />
+    <ClInclude Include="Ksiazka.h" />
+    <ClInclude Include="Rezerwacja.h" />
+    <ClInclude Include="Wypozyczenie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
