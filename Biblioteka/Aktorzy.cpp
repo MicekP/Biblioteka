@@ -65,38 +65,6 @@ void Obsluga::Wypisz()
     }
 }
 
-void Menu()
-{
-
-    int X;
-
-    cout << "Wybiez opcje:" << endl << "1. Dodaj pracownika" << endl << "2. Dodaj czytelnika" << endl << "3. Wypisz pracownikow" << endl << "4. Wypisz czytelnikow" << endl << "5. Zakoncz" << endl;
-    cin >> X;
-
-    switch (X)
-    {
-    case 1:
-        Obsluga::Dodaj_obsluga();
-        Menu();
-        break;
-    case 2:
-        Czytelnik::Dodaj_czytelnik();
-        Menu();
-        break;
-    case 3:
-        Obsluga::Wypisz();
-        Menu();
-        break;
-    case 4:
-        Czytelnik::Wypisz();
-        Menu();
-        break;
-    case 5:
-        break;
-    default:
-        break;
-    }
-}
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
 // Debugowanie programu: F5 lub menu Debugowanie > Rozpocznij debugowanie
