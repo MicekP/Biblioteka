@@ -26,8 +26,7 @@ void Czytelnik::Dodaj_czytelnik()
 
     if (licznik < 3)
     {
-        tab_czyt[licznik].Imie = x;
-        tab_czyt[licznik].Nazwisko = y;
+        tab_czyt[licznik] = Czytelnik(x, y);
 
         Licznik_add();
     }
@@ -49,8 +48,7 @@ void Obsluga::Dodaj_obsluga()
 
     if (licznik < 3)
     {
-        tab_obs[licznik].Imie = x;
-        tab_obs[licznik].Nazwisko = y;
+        tab_obs[licznik] = Obsluga(x, y)
 
         Licznik_add();
     }
@@ -80,15 +78,19 @@ void Menu()
     case 1:
         Obsluga::Dodaj_obsluga();
         Menu();
+        break;
     case 2:
         Czytelnik::Dodaj_czytelnik();
         Menu();
+        break;
     case 3:
         Obsluga::Wypisz();
         Menu();
+        break;
     case 4:
         Czytelnik::Wypisz();
         Menu();
+        break;
     case 5:
         break;
     default:
@@ -99,10 +101,10 @@ void Menu()
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
 // Debugowanie programu: F5 lub menu Debugowanie > Rozpocznij debugowanie
 
-// Porady dotycz¹ce rozpoczynania pracy:
-//   1. U¿yj okna Eksploratora rozwi¹zañ, aby dodaæ pliki i zarz¹dzaæ nimi
-//   2. U¿yj okna programu Team Explorer, aby nawi¹zaæ po³¹czenie z kontrol¹ Ÿród³a
-//   3. U¿yj okna Dane wyjœciowe, aby sprawdziæ dane wyjœciowe kompilacji i inne komunikaty
-//   4. U¿yj okna Lista b³êdów, aby zobaczyæ b³êdy
-//   5. Wybierz pozycjê Projekt > Dodaj nowy element, aby utworzyæ nowe pliki kodu, lub wybierz pozycjê Projekt > Dodaj istniej¹cy element, aby dodaæ istniej¹ce pliku kodu do projektu
-//   6. Aby w przysz³oœci ponownie otworzyæ ten projekt, przejdŸ do pozycji Plik > Otwórz > Projekt i wybierz plik sln
+// Porady dotyczÄ…ce rozpoczynania pracy:
+//   1. UÅ¼yj okna Eksploratora rozwiÄ…zaÅ„, aby dodaÄ‡ pliki i zarzÄ…dzaÄ‡ nimi
+//   2. UÅ¼yj okna programu Team Explorer, aby nawiÄ…zaÄ‡ poÅ‚Ä…czenie z kontrolÄ… ÅºrÃ³dÅ‚a
+//   3. UÅ¼yj okna Dane wyjÅ›ciowe, aby sprawdziÄ‡ dane wyjÅ›ciowe kompilacji i inne komunikaty
+//   4. UÅ¼yj okna Lista bÅ‚Ä™dÃ³w, aby zobaczyÄ‡ bÅ‚Ä™dy
+//   5. Wybierz pozycjÄ™ Projekt > Dodaj nowy element, aby utworzyÄ‡ nowe pliki kodu, lub wybierz pozycjÄ™ Projekt > Dodaj istniejÄ…cy element, aby dodaÄ‡ istniejÄ…ce pliku kodu do projektu
+//   6. Aby w przyszÅ‚oÅ›ci ponownie otworzyÄ‡ ten projekt, przejdÅº do pozycji Plik > OtwÃ³rz > Projekt i wybierz plik sln
