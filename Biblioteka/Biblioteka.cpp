@@ -2,12 +2,46 @@
 //
 
 #include <iostream>
+#include "Aktorzy.cpp"
+
+
+void Menu()
+{
+    system("cls");
+
+    int O;
+
+    cout << "Wybiez opcje wpisujac numer:" << endl << "1. Dodaj pracownika" << endl << "2. Dodaj czytelnika" << endl << "3. Wypisz pracownikow" << endl << "4. Wypisz czytelnikow" << endl << "5. Zakoncz" << endl;
+    cin >> O;
+
+    switch (O)
+    {
+    case 1:
+        Obsluga::Dodaj_obsluga();
+        Menu();
+        break;
+    case 2:
+        Czytelnik::Dodaj_czytelnik();
+        Menu();
+        break;
+    case 3:
+        Obsluga::Wypisz();
+        Menu();
+        break;
+    case 4:
+        Czytelnik::Wypisz();
+        Menu();
+        break;
+    case 5:
+        break;
+    default:
+        break;
+    }
+}
 
 int main()
 {
-    for (int i = 0; i < 10; i++) {
-        std::cout << "Hello World!\n";
-    }
+    Menu();
 }
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
