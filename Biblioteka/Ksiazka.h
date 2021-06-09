@@ -4,7 +4,9 @@
 #include <iostream>
 using namespace std;
 
-class Ksiazka {	
+class Ksiazka {
+private:
+	static int licznik;
 public:
 	int ID;
 	string tytul;
@@ -22,25 +24,29 @@ public:
 		L_wolnych_egz = 0;
 	}
 	
-	Ksiazka(int i, string t, string a)
+	Ksiazka(string t, string a, int i)
 	{
-		ID = i;
+		ID = 1000 + licznik;
 		Tytul = t;
 		Autor = a;
 		
-		L_egz = 1;
-		L_wolnych_egz = 1;
+		L_egz = i;
+		L_wolnych_egz = i;
 	}
 	
 	~Ksiazka() {};
 		
-
-	void Dodaj(string, string, int);				// dodawanie pozycji, tytul, autor, ilosc
-	void Usun();								//usuniecie calej pozycji, gdy nie ma juz w ogole egzemplarzy
-	void Usun_egzemplarz(string, string, int);	//usuwanie po tytule i autorze, ilosc
-	void Usun_egzemplarz(int, int);				// usuwanie po id, ilosc
-	void Dodaj_egzemplarz(string, string, int); // dodaj egzemplarz po autorze i tytule, ilosc
-	void Dodaj_egzemplarz(int, int);			// dodaj po id, ilosc
+	static void Licznik_add()
+	{
+		licznik++;
+	}
+	
+	static void Dodaj();				// dodawanie pozycji, tytul, autor, ilosc
+	static void Usun();				//usuniecie calej pozycji, gdy nie ma juz w ogole egzemplarzy
+	static void Usun_egzemplarz();			//usuwanie po tytule i autorze, ilosc
+	static void Usun_egzemplarz_id();		// usuwanie po id, ilosc
+	static void Dodaj_egzemplarz(); 		// dodaj egzemplarz po autorze i tytule, ilosc
+	static void Dodaj_egzemplarz_id();		// dodaj po id, ilosc
 };
 
 #endif // !Ksiazkah
