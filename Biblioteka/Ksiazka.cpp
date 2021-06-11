@@ -110,7 +110,7 @@ void Ksiazka::Usun_egzemplarz_id()
             
             if (tab_ksia[i].L_egz <= 0)
             {
-                tab_ksia[i].~Ksiazka();
+                tab_ksia[i].Tytul = "X";
             }
             return;
         }
@@ -149,7 +149,7 @@ void Ksiazka::Usun_egzemplarz()
 
             if (tab_ksia[i].L_egz <= 0)
             {
-                tab_ksia[i].~Ksiazka();
+                tab_ksia[i].Tytul = "X";
             }
             return;
         }
