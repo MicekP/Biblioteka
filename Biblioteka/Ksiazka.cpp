@@ -165,7 +165,7 @@ void Ksiazka::Wypisz_ksia()
 {
     for (int i = 0; i < 10; i++)
     {
-        if (tab_ksia[i].Tytul != "X")
+        if (tab_ksia[i].Tytul != "X" && tab_ksia[i].Autor != "Y Z")
             cout << tab_ksia[i].ID << " " << tab_ksia[i].Tytul << " " << tab_ksia[i].Autor << endl;
         else
             break;
