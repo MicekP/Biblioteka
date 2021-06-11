@@ -64,15 +64,12 @@ void Zaloguj_czytelnik()
             break;
         case 1:
             //rezerwacja
-            Zaloguj_czytelnik();
             break;
         case 2:
             //anuluj rezerwacje
-            Zaloguj_czytelnik();
             break;
         case 3:
             //sprawdz rezerwacje
-            Zaloguj_czytelnik();
             break;
         default:
             break;
