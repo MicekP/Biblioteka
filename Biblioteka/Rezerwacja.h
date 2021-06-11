@@ -11,8 +11,8 @@ public:
 	time_t od_kiedy;
 	time_t do_kiedy;
 
-	void Rezerwuj();
-	void Anuluj_rezerwacje();
+	static void Rezerwuj();
+	static void Anuluj_rezerwacje();
 };
 
 #endif // !Rezerwacjah

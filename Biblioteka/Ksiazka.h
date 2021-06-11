@@ -2,6 +2,7 @@
 #define Ksiazkah
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Ksiazka {
@@ -42,11 +43,11 @@ public:
 	}
 	
 	static void Dodaj();				// dodawanie pozycji, tytul, autor, ilosc
-	static void Usun();				//usuniecie calej pozycji, gdy nie ma juz w ogole egzemplarzy
 	static void Usun_egzemplarz();			//usuwanie po tytule i autorze, ilosc
 	static void Usun_egzemplarz_id();		// usuwanie po id, ilosc
 	static void Dodaj_egzemplarz(); 		// dodaj egzemplarz po autorze i tytule, ilosc
 	static void Dodaj_egzemplarz_id();		// dodaj po id, ilosc
+	static void Wypisz_ksia();					//wypisz liste ksiazek
 };
 
 #endif // !Ksiazkah

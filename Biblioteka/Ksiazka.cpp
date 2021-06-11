@@ -1,9 +1,10 @@
 #include "Ksiazka.h"
+#include <string>
 
 Ksiazka tab_ksia[10];
 int Ksiazka::licznik = 0;
 
-/*
+
 void Ksiazka::Dodaj()
 {
       string X;
@@ -11,7 +12,7 @@ void Ksiazka::Dodaj()
       int Z;
   
       cout << "Podaj tytul:" << endl;
-      cin >> X;
+      getline(cin, X); //Problem!!
       cout << "Podaj autora:" << endl;
       cin >> Y;
       cout << "Podaj ilosc egzemplarzy do dodania:" << endl;
@@ -25,22 +26,17 @@ void Ksiazka::Dodaj()
       
 }
 
-void Usun()
-{
-  
-}
-
-void Dodaj_egzemplarz_id()
+void Ksiazka::Dodaj_egzemplarz_id()
 {
     int X;
     int Y;
-  
+
     cout << "Podaj ID ksiazki:" << endl;
 	cin >> X;
     cout << "Podaj ilosc egzemplarzy do dodania:" << endl;
     cin >> Y;
   
-    for(int i; i < 10; i++)
+    for(int i = 0; i < 10; i++)
     {
         if(tab_ksia[i].ID == X)
         {
@@ -55,7 +51,8 @@ void Dodaj_egzemplarz_id()
         }
     }
 }
-void Dodaj_egzemplarz()
+
+void Ksiazka::Dodaj_egzemplarz()
 {
     string X;
     string Y;
@@ -68,9 +65,9 @@ void Dodaj_egzemplarz()
     cout << "Podaj ilosc egzemplarzy do dodania:" << endl;
     cin >> Z;
 
-    for (int i; i < 10; i++)
+    for (int i = 0; i < 10; i++)
     {
-        if (tab_ksia[i].tytul == X && tab_ksia[i].autor == Y)
+        if (tab_ksia[i].Tytul == X && tab_ksia[i].Autor == Y)
         {
             tab_ksia[i].L_egz += Z;
             tab_ksia[i].L_wolnych_egz += Z;
@@ -84,7 +81,8 @@ void Dodaj_egzemplarz()
     }
     
 }
-void Usun_egzemplarz_id()
+
+void Ksiazka::Usun_egzemplarz_id()
 {
     int X;
     int Y;
@@ -94,7 +92,7 @@ void Usun_egzemplarz_id()
     cout << "Podaj ilosc egzemplarzy do usuniecia:" << endl;
     cin >> Y;
 
-    for (int i; i < 10; i++)
+    for (int i = 0; i < 10; i++)
     {
         if (tab_ksia[i].ID == X)
         {
@@ -103,7 +101,7 @@ void Usun_egzemplarz_id()
             
             if (tab_ksia[i].L_egz <= 0)
             {
-                //Usun();
+                tab_ksia[i].~Ksiazka();
             }
             return;
         }
@@ -114,7 +112,8 @@ void Usun_egzemplarz_id()
         }
     }
 }
-void Usun_egzemplarz()
+
+void Ksiazka::Usun_egzemplarz()
 {
     string X;
     string Y;
@@ -127,16 +126,16 @@ void Usun_egzemplarz()
     cout << "Podaj ilosc egzemplarzy do usuniecia:" << endl;
     cin >> Z;
 
-    for (int i; i < 10; i++)
+    for (int i = 0; i < 10; i++)
     {
-        if (tab_ksia[i].tytul == X && tab_ksia[i].autor == Y)
+        if (tab_ksia[i].Tytul == X && tab_ksia[i].Autor == Y)
         {
             tab_ksia[i].L_egz -= Z;
             tab_ksia[i].L_wolnych_egz -= Z;
 
             if (tab_ksia[i].L_egz <= 0)
             {
-                //Usun();
+                tab_ksia[i].~Ksiazka();
             }
             return;
         }
@@ -147,4 +146,14 @@ void Usun_egzemplarz()
         }
     }
 }
-*/
+
+void Ksiazka::Wypisz_ksia()
+{
+    for (int i = 0; i < 10; i++)
+    {
+        if (tab_ksia[i].Tytul != "X")
+            cout << tab_ksia[i].ID << " " << tab_ksia[i].Tytul << " " << tab_ksia[i].Autor << endl;
+        else
+            break;
+    }
+}

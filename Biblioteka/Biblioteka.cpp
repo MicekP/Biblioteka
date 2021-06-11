@@ -3,7 +3,107 @@
 
 #include <iostream>
 #include "Aktorzy.h"
+#include "Ksiazka.h"
 
+void Zaloguj_obsluga()
+{
+    int U;
+
+    cout << "Obsluga - dostepne dzialania:" << endl << "1. Dodaj nowa ksiazke" << endl << "2. Dodaj egz istniejacej ksiazki po tytule i autorze" << endl <<
+        "3. Dodaj egz istniejacej ksiazki po ID" << endl << "4. Usun egz istniejacej ksiazki po tytule i autorze" << endl <<
+        "5. Usun egz istniejacej ksiazki po ID" << endl << "7. Wypisz liste ksiazek"<< endl << "6. Wypozyczenie ksiazki czytelnikowi" << endl << "0. //Wyloguj//" << endl;
+    cin >> U;
+
+    switch (U)
+    {
+    case 0:
+        break;
+    case 1:
+        Ksiazka::Dodaj();
+        Zaloguj_obsluga();
+        break;
+    case 2:
+        Ksiazka::Dodaj_egzemplarz();
+        Zaloguj_obsluga();
+        break;
+    case 3:
+        Ksiazka::Dodaj_egzemplarz_id();
+        Zaloguj_obsluga();
+        break;
+    case 4:
+        Ksiazka::Usun_egzemplarz();
+        Zaloguj_obsluga();
+        break;
+    case 5:
+        Ksiazka::Usun_egzemplarz_id();
+        Zaloguj_obsluga();
+        break;
+    case 6:
+        //Wypozyczanie
+        break;
+    case 7:
+        Ksiazka::Wypisz_ksia();
+        Zaloguj_obsluga();
+        break;
+    default:
+        break;
+    }
+}
+
+void Zaloguj_czytelnik()
+{
+    int U;
+
+    cout << "Czytelnik - dostepne dzialania:" << endl << "1. Rezerwuj ksiazke" << endl << "2. Anuluj rezerwacje" << endl <<
+        "3. Sprawdz rezerwacje" << endl << "0. //Wyloguj//" << endl;
+    cin >> U;
+
+    switch (U)
+    {
+    case 0:
+        break;
+    case 1:
+        //rezerwacja
+        Zaloguj_czytelnik();
+        break;
+    case 2:
+        //anuluj rezerwacje
+        Zaloguj_czytelnik();
+        break;
+    case 3:
+        //sprawdz rezerwacje
+        Zaloguj_czytelnik();
+        break;
+    default:
+        break;
+
+    }
+}
+
+void Zaloguj_wybor()
+{
+    int U;
+
+    cout << "Logowanie jako:" << endl << "1. Obsluga" << endl << "2. Czytelnik" << endl << "3. Nowy czytelnik - tworzenie karty" << endl << "0. Powrot" << endl;
+    cin >> U;
+
+    switch (U)
+    {
+    case 0:
+        break;
+    case 1:
+        Zaloguj_obsluga();
+        break;
+    case 2:
+        Zaloguj_czytelnik();
+        break;
+    case 3:
+        //Czytelnik_nowy_karta();
+        break;
+    default:
+        break;
+    }
+}
 
 void Menu()
 {
@@ -11,17 +111,19 @@ void Menu()
 
     int O;
 
-    cout << "Wybiez opcje wpisujac numer:" << endl << "1. Dodaj pracownika" << endl << "2. Dodaj czytelnika" << endl << "3. Wypisz pracownikow" << endl << "4. Wypisz czytelnikow" << endl << "5. Zakoncz" << endl;
+    cout << "Wybiez opcje wpisujac numer:" << endl << "1. Dodaj pracownika" << endl << "2. //Logowanie//" << endl << "3. Wypisz pracownikow" << endl << "4. Wypisz czytelnikow" << endl << "0. Zakoncz" << endl;
     cin >> O;
 
     switch (O)
     {
+    case 0:
+        break;
     case 1:
         Obsluga::Dodaj_obsluga();
         Menu();
         break;
     case 2:
-        Czytelnik::Dodaj_czytelnik();
+        Zaloguj_wybor();
         Menu();
         break;
     case 3:
@@ -32,17 +134,20 @@ void Menu()
         Czytelnik::Wypisz();
         Menu();
         break;
-    case 5:
-        break;
     default:
         break;
     }
 }
 
+
+
+
 int main()
 {
     Czytelnik::Dodaj_czytelnik("Piotr", "Micek"); // test dodawania czytelnikow
     Czytelnik::Wypisz();
+
+    Menu();
 
 }
 
