@@ -1,7 +1,9 @@
+#include <iostream>
+#include "Karta.h"
+
 #ifndef Aktorzyh
 #define Aktorzyh
 
-#include <iostream>
 using namespace std;
 
 class Osoba
@@ -27,6 +29,9 @@ class Czytelnik : public Osoba
 private:
     static int licznik;
 public:
+    
+    Karta* Karta_czytelnika = NULL;
+
     static void Licznik_add()
     {
         licznik++;
@@ -47,8 +52,11 @@ public:
     ~Czytelnik() {};
 
     static void Dodaj_czytelnik();
+    static void Dodaj_czytelnik(string, string); //od razu podajemy imie i nazwisko
 
     static void Wypisz();
+
+    static Czytelnik tab_cz[5];
 };
 
 class Obsluga : public Osoba
@@ -80,5 +88,6 @@ public:
     static void Wypisz();
 
 };
+
 
 #endif // !Aktorzyh

@@ -9,8 +9,8 @@ private:
 	static int licznik;
 public:
 	int ID;
-	string tytul;
-	string autor;
+	string Tytul;
+	string Autor;
 	int L_egz;						//liczba wszystkich egzemplarzy
 	int L_wolnych_egz;			//liczba egzemplarzy w bibliotece, niewypozyczonych
 	

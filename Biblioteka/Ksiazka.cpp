@@ -3,7 +3,8 @@
 Ksiazka tab_ksia[10];
 int Ksiazka::licznik = 0;
 
-void Dodaj()
+/*
+void Ksiazka::Dodaj()
 {
       string X;
       string Y;
@@ -146,3 +147,4 @@ void Usun_egzemplarz()
         }
     }
 }
+*/

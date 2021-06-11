@@ -3,12 +3,16 @@
 Czytelnik tab_czyt[3];
 int Czytelnik::licznik = 0;
 
+void testowafunkcjateraz() {
+    cout << "ta funkcja dziala" << endl;
+}
+
 void Czytelnik::Wypisz()
 {
     for (int i = 0; i < 3; i++)
     {
         if (tab_czyt[i].Imie != "X")
-            cout << tab_czyt[i].GetImie() << " " << tab_czyt[i].GetNazwisko() << endl;
+            cout << i << ". " << tab_czyt[i].GetImie() << " " << tab_czyt[i].GetNazwisko() << endl;
         else
             break;
     }
@@ -24,6 +28,16 @@ void Czytelnik::Dodaj_czytelnik()
     cout << "Podaj Nazwisko Czytelnika" << endl;
     cin >> y;
 
+    if (licznik < 3)
+    {
+        tab_czyt[licznik] = Czytelnik(x, y);
+
+        Licznik_add();
+    }
+}
+
+void Czytelnik::Dodaj_czytelnik(string x, string y)
+{
     if (licznik < 3)
     {
         tab_czyt[licznik] = Czytelnik(x, y);
@@ -48,7 +62,7 @@ void Obsluga::Dodaj_obsluga()
 
     if (licznik < 3)
     {
-        tab_obs[licznik] = Obsluga(x, y)
+        tab_obs[licznik] = Obsluga(x, y);
 
         Licznik_add();
     }

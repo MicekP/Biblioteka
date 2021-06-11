@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include "Aktorzy.cpp"
+#include "Aktorzy.h"
 
 
 void Menu()
@@ -41,7 +41,9 @@ void Menu()
 
 int main()
 {
-    Menu();
+    Czytelnik::Dodaj_czytelnik("Piotr", "Micek"); // test dodawania czytelnikow
+    Czytelnik::Wypisz();
+
 }
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
