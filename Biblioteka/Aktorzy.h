@@ -55,8 +55,6 @@ public:
     static void Dodaj_czytelnik(string, string); //od razu podajemy imie i nazwisko
 
     static void Wypisz();
-
-    static Czytelnik tab_cz[5];
 };
 
 class Obsluga : public Osoba

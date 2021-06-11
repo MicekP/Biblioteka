@@ -1,12 +1,12 @@
 #include "Aktorzy.h"
 
-Czytelnik tab_czyt[3];
+Czytelnik tab_czyt[10];
 int Czytelnik::licznik = 0;
 
 
 void Czytelnik::Wypisz()
 {
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 10; i++)
     {
         if (tab_czyt[i].Imie != "X")
             cout << i+1 << ". " << tab_czyt[i].GetImie() << " " << tab_czyt[i].GetNazwisko() << endl;
@@ -25,17 +25,24 @@ void Czytelnik::Dodaj_czytelnik()
     cout << "Podaj Nazwisko Czytelnika" << endl;
     cin >> y;
 
-    if (licznik < 3)
+    if (licznik < 10)
     {
         tab_czyt[licznik] = Czytelnik(x, y);
+        tab_czyt[licznik].Karta_czytelnika = Karta::Utworz();
 
+        tab_czyt[licznik].Karta_czytelnika->wypisz();
         Licznik_add();
     }
+    else {
+        cout << "ERROR: MAKSYMALNA LICZBA UZYTOWNIKOW" << endl;
+    }
+
+
 }
 
 void Czytelnik::Dodaj_czytelnik(string x, string y)
 {
-    if (licznik < 3)
+    if (licznik < 10)
     {
         tab_czyt[licznik] = Czytelnik(x, y);
 
@@ -44,7 +51,7 @@ void Czytelnik::Dodaj_czytelnik(string x, string y)
 }
 
 
-Obsluga tab_obs[3];
+Obsluga tab_obs[10];
 int Obsluga::licznik = 0;
 
 void Obsluga::Dodaj_obsluga()
@@ -57,7 +64,7 @@ void Obsluga::Dodaj_obsluga()
     cout << "Podaj Nazwisko Pracownika" << endl;
     cin >> y;
 
-    if (licznik < 3)
+    if (licznik < 10)
     {
         tab_obs[licznik] = Obsluga(x, y);
 
@@ -67,7 +74,7 @@ void Obsluga::Dodaj_obsluga()
 
 void Obsluga::Wypisz()
 {
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 10; i++)
     {
         if (tab_obs[i].Imie != "X")
             cout << tab_obs[i].GetImie() << " " << tab_obs[i].GetNazwisko() << endl;

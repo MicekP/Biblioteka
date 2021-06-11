@@ -6,7 +6,10 @@
 #include "Aktorzy.h"
 #include "Ksiazka.h"
 
+void Czytelnik_nowy_karta() {
+    Czytelnik::Dodaj_czytelnik();
 
+}
 
 void Zaloguj_obsluga()
 {
@@ -49,7 +52,7 @@ void Zaloguj_obsluga()
     } while (U != 0);
 }
 
-void Zaloguj_czytelnik()
+void Zaloguj_czytelnik(int zalogowany)
 {
     int U;
 
@@ -93,10 +96,16 @@ void Zaloguj_wybor()
         Zaloguj_obsluga();
         break;
     case 2:
-        Zaloguj_czytelnik();
+        cout << "Na ktorego uzytkownika chcesz sie zalogowac?" << endl << endl;
+        Czytelnik::Wypisz();
+        cout << endl;
+        int zalogowany;
+        cin >> zalogowany;
+        Zaloguj_czytelnik(zalogowany-1); //-1 bo uzytkownicy widza od i+1
         break;
     case 3:
-        //Czytelnik_nowy_karta();
+        Czytelnik::Dodaj_czytelnik();
+        system("PAUSE");
         break;
     default:
         break;
@@ -109,7 +118,7 @@ void Menu()
     do {
     system("cls");
     
-    cout << "Wybiez opcje wpisujac numer:" << endl << "1. Dodaj pracownika" << endl << "2. //Logowanie//" << endl << "3. Wypisz pracownikow" << endl << "4. Wypisz czytelnikow" << endl << "0. Zakoncz" << endl;
+    cout << "Wybiez opcje wpisujac numer:" << endl << "1. Dodaj pracownika" << endl << "2. //Logowanie//" << endl << "3.  Wypisz czytelnikow " << endl << "4. Wypisz pracownikow" << endl << "0. Zakoncz" << endl;
     cin >> O;
 
     switch (O)
@@ -120,14 +129,14 @@ void Menu()
             Obsluga::Dodaj_obsluga();
             break;
         case 2:
-            Czytelnik::Dodaj_czytelnik();
+            Zaloguj_wybor();
             break;
         case 3:
-            Zaloguj_wybor();
+            Czytelnik::Wypisz();
             system("PAUSE");
             break;
         case 4:
-            Czytelnik::Wypisz();
+            Obsluga::Wypisz();
             system("PAUSE");
             break;
         default:
