@@ -9,7 +9,7 @@ void Czytelnik::Wypisz()
     for (int i = 0; i < 10; i++)
     {
         if (tab_czyt[i].Imie != "X")
-            cout << i+1 << ". " << tab_czyt[i].GetImie() << " " << tab_czyt[i].GetNazwisko() << endl;
+            cout << i << ". " << tab_czyt[i].GetImie() << " " << tab_czyt[i].GetNazwisko() << endl;
         else
             break;
     }
