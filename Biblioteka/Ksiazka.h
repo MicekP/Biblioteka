@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 class Ksiazka {
@@ -47,7 +48,8 @@ public:
 	static void Usun_egzemplarz_id();		// usuwanie po id, ilosc
 	static void Dodaj_egzemplarz(); 		// dodaj egzemplarz po autorze i tytule, ilosc
 	static void Dodaj_egzemplarz_id();		// dodaj po id, ilosc
-	static void Wypisz_ksia();					//wypisz liste ksiazek
+	static void Wypisz_ksia();		//wypisz liste ksiazek
+	static Ksiazka* Zwroc(int);
 };
 
 #endif // !Ksiazkah

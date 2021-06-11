@@ -10,20 +10,24 @@ void Ksiazka::Dodaj()
       string X;
       string Y;
       int Z;
+
+      string NO;
+      getline(cin, NO);
   
       cout << "Podaj tytul:" << endl;
-      getline(cin, X); //Problem!!
+      getline(cin, X);
+
       cout << "Podaj autora:" << endl;
-      cin >> Y;
+      getline(cin, Y);
+
       cout << "Podaj ilosc egzemplarzy do dodania:" << endl;
       cin >> Z;
       
       if (licznik < 10)
       {
-        tab_ksia[licznik] = Ksiazka(X, Y, Z);
-        Licznik_add();
+          tab_ksia[licznik] = Ksiazka(X, Y, Z);
+          Licznik_add();
       }
-      
 }
 
 void Ksiazka::Dodaj_egzemplarz_id()
@@ -58,10 +62,15 @@ void Ksiazka::Dodaj_egzemplarz()
     string Y;
     int Z;
 
-    cout << "Podaj tytul ksiazki:" << endl;
-    cin >> X;
+    string NO;
+    getline(cin, NO);
+
+    cout << "Podaj tytul:" << endl;
+    getline(cin, X);
+
     cout << "Podaj autora:" << endl;
-    cin >> Y;
+    getline(cin, Y);
+
     cout << "Podaj ilosc egzemplarzy do dodania:" << endl;
     cin >> Z;
 
@@ -119,10 +128,15 @@ void Ksiazka::Usun_egzemplarz()
     string Y;
     int Z;
 
-    cout << "Podaj tytul ksiazki:" << endl;
-    cin >> X;
+    string NO;
+    getline(cin, NO);
+
+    cout << "Podaj tytul:" << endl;
+    getline(cin, X);
+
     cout << "Podaj autora:" << endl;
-    cin >> Y;
+    getline(cin, Y);
+
     cout << "Podaj ilosc egzemplarzy do usuniecia:" << endl;
     cin >> Z;
 
@@ -156,4 +170,9 @@ void Ksiazka::Wypisz_ksia()
         else
             break;
     }
+}
+
+Ksiazka* Ksiazka::Zwroc(int i)
+{
+    return &tab_ksia[i];
 }

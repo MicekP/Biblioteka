@@ -3,16 +3,13 @@
 Czytelnik tab_czyt[3];
 int Czytelnik::licznik = 0;
 
-void testowafunkcjateraz() {
-    cout << "ta funkcja dziala" << endl;
-}
 
 void Czytelnik::Wypisz()
 {
     for (int i = 0; i < 3; i++)
     {
         if (tab_czyt[i].Imie != "X")
-            cout << i << ". " << tab_czyt[i].GetImie() << " " << tab_czyt[i].GetNazwisko() << endl;
+            cout << i+1 << ". " << tab_czyt[i].GetImie() << " " << tab_czyt[i].GetNazwisko() << endl;
         else
             break;
     }

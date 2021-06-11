@@ -2,8 +2,11 @@
 //
 
 #include <iostream>
+#include <string>
 #include "Aktorzy.h"
 #include "Ksiazka.h"
+
+
 
 void Zaloguj_obsluga()
 {
@@ -107,7 +110,7 @@ void Zaloguj_wybor()
 
 void Menu()
 {
-    system("cls");
+    
 
     int O;
 
@@ -141,14 +144,18 @@ void Menu()
 
 
 
-
 int main()
 {
-    Czytelnik::Dodaj_czytelnik("Piotr", "Micek"); // test dodawania czytelnikow
-    Czytelnik::Wypisz();
-
     Menu();
+    
+    cout << endl;
+    Ksiazka* K = Ksiazka::Zwroc(0);
+    cout << K->Tytul;
 
+    K->Tytul = "BBB";
+
+    Ksiazka::Wypisz_ksia();
+    
 }
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
