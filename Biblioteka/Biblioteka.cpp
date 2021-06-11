@@ -142,15 +142,6 @@ void Menu()
 int main()
 {
     Menu();
-    
-    cout << endl;
-    Ksiazka* K = Ksiazka::Zwroc(0);
-    cout << K->Tytul;
-
-    K->Tytul = "BBB";
-
-    Ksiazka::Wypisz_ksia();
-    
 }
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania

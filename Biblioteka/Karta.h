@@ -14,7 +14,11 @@ public:
 	//Wypozyczenie tab[3]; pozniej bedzie do wypozyczen, wydaje mi sie, ze na logike to powinno byc na stosie zrobione
 
 	Karta();
-	Karta* Utworz();
+	static void Utworz_karte();
+	void Rozpocznij_rezerwacje();
+	void Wypisz_rezerwacje();
+	void Wypisz_wypozyczenia();
+
 };
 
 #endif // !Kartah
