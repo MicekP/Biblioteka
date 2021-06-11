@@ -9,75 +9,73 @@ void Zaloguj_obsluga()
 {
     int U;
 
-    cout << "Obsluga - dostepne dzialania:" << endl << "1. Dodaj nowa ksiazke" << endl << "2. Dodaj egz istniejacej ksiazki po tytule i autorze" << endl <<
-        "3. Dodaj egz istniejacej ksiazki po ID" << endl << "4. Usun egz istniejacej ksiazki po tytule i autorze" << endl <<
-        "5. Usun egz istniejacej ksiazki po ID" << endl << "7. Wypisz liste ksiazek"<< endl << "6. Wypozyczenie ksiazki czytelnikowi" << endl << "0. //Wyloguj//" << endl;
-    cin >> U;
+    do {
+        cout << "Obsluga - dostepne dzialania:" << endl << "1. Dodaj nowa ksiazke" << endl << "2. Dodaj egz istniejacej ksiazki po tytule i autorze" << endl <<
+            "3. Dodaj egz istniejacej ksiazki po ID" << endl << "4. Usun egz istniejacej ksiazki po tytule i autorze" << endl <<
+            "5. Usun egz istniejacej ksiazki po ID" << endl << "7. Wypisz liste ksiazek" << endl << "6. Wypozyczenie ksiazki czytelnikowi" << endl << "0. //Wyloguj//" << endl;
+        cin >> U;
 
-    switch (U)
-    {
-    case 0:
-        break;
-    case 1:
-        Ksiazka::Dodaj();
-        Zaloguj_obsluga();
-        break;
-    case 2:
-        Ksiazka::Dodaj_egzemplarz();
-        Zaloguj_obsluga();
-        break;
-    case 3:
-        Ksiazka::Dodaj_egzemplarz_id();
-        Zaloguj_obsluga();
-        break;
-    case 4:
-        Ksiazka::Usun_egzemplarz();
-        Zaloguj_obsluga();
-        break;
-    case 5:
-        Ksiazka::Usun_egzemplarz_id();
-        Zaloguj_obsluga();
-        break;
-    case 6:
-        //Wypozyczanie
-        break;
-    case 7:
-        Ksiazka::Wypisz_ksia();
-        Zaloguj_obsluga();
-        break;
-    default:
-        break;
-    }
+        switch (U)
+        {
+        case 0:
+            break;
+        case 1:
+            Ksiazka::Dodaj();
+            break;
+        case 2:
+            Ksiazka::Dodaj_egzemplarz();
+            break;
+        case 3:
+            Ksiazka::Dodaj_egzemplarz_id();
+            break;
+        case 4:
+            Ksiazka::Usun_egzemplarz();
+            break;
+        case 5:
+            Ksiazka::Usun_egzemplarz_id();
+            break;
+        case 6:
+            //Wypozyczanie
+            break;
+        case 7:
+            Ksiazka::Wypisz_ksia();
+            break;
+        default:
+            break;
+        }
+    } while (U != 0);
 }
 
 void Zaloguj_czytelnik()
 {
     int U;
 
-    cout << "Czytelnik - dostepne dzialania:" << endl << "1. Rezerwuj ksiazke" << endl << "2. Anuluj rezerwacje" << endl <<
-        "3. Sprawdz rezerwacje" << endl << "0. //Wyloguj//" << endl;
-    cin >> U;
+    do {
+        cout << "Czytelnik - dostepne dzialania:" << endl << "1. Rezerwuj ksiazke" << endl << "2. Anuluj rezerwacje" << endl <<
+            "3. Sprawdz rezerwacje" << endl << "0. //Wyloguj//" << endl;
+        cin >> U;
 
-    switch (U)
-    {
-    case 0:
-        break;
-    case 1:
-        //rezerwacja
-        Zaloguj_czytelnik();
-        break;
-    case 2:
-        //anuluj rezerwacje
-        Zaloguj_czytelnik();
-        break;
-    case 3:
-        //sprawdz rezerwacje
-        Zaloguj_czytelnik();
-        break;
-    default:
-        break;
+        switch (U)
+        {
+        case 0:
+            break;
+        case 1:
+            //rezerwacja
+            Zaloguj_czytelnik();
+            break;
+        case 2:
+            //anuluj rezerwacje
+            Zaloguj_czytelnik();
+            break;
+        case 3:
+            //sprawdz rezerwacje
+            Zaloguj_czytelnik();
+            break;
+        default:
+            break;
 
-    }
+        }
+    } while (U != 0);
 }
 
 void Zaloguj_wybor()
@@ -107,47 +105,45 @@ void Zaloguj_wybor()
 
 void Menu()
 {
-    system("cls");
-
     int O;
-
+    do {
+    system("cls");
+    
     cout << "Wybiez opcje wpisujac numer:" << endl << "1. Dodaj pracownika" << endl << "2. //Logowanie//" << endl << "3. Wypisz pracownikow" << endl << "4. Wypisz czytelnikow" << endl << "0. Zakoncz" << endl;
     cin >> O;
 
     switch (O)
-    {
-    case 0:
-        break;
-    case 1:
-        Obsluga::Dodaj_obsluga();
-        Menu();
-        break;
-    case 2:
-        Zaloguj_wybor();
-        Menu();
-        break;
-    case 3:
-        Obsluga::Wypisz();
-        Menu();
-        break;
-    case 4:
-        Czytelnik::Wypisz();
-        Menu();
-        break;
-    default:
-        break;
-    }
+        {
+        case 0:
+            break;
+        case 1:
+            Obsluga::Dodaj_obsluga();
+            break;
+        case 2:
+            Czytelnik::Dodaj_czytelnik();
+            break;
+        case 3:
+            Zaloguj_wybor();
+            system("PAUSE");
+            break;
+        case 4:
+            Czytelnik::Wypisz();
+            system("PAUSE");
+            break;
+        default:
+            break;
+        }
+    } while (O != 0);
 }
+
+
 
 
 
 
 int main()
 {
-    Czytelnik::Dodaj_czytelnik("Piotr", "Micek"); // test dodawania czytelnikow
-    Czytelnik::Wypisz();
-
-    Menu();
+   Menu();
 
 }
 
