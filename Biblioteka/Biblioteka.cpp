@@ -74,6 +74,9 @@ void Zaloguj_czytelnik(int zalogowany)
         case 3:
             //sprawdz rezerwacje
             break;
+        case 4:
+            //sprawdz wypozyczenia
+            break;
         default:
             break;
 
