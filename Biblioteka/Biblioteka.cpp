@@ -71,14 +71,21 @@ void Zaloguj_czytelnik(int zalogowany)
                 if (Ksiazka::Czy_sa_ksiazki() == true)
                 {   
                     cout << "Ktora ksiazke chcesz zarezerwowac" << endl;
-                    Czytelnik* aktualny = Czytelnik::Zwroc(zalogowany);
-                    aktualny->Karta_czytelnika.
+                    int wybor;
+                    cin >> wybor;
+                    if (Ksiazka::Czy_wolna(wybor) == true) {
+                        Czytelnik* aktualny = Czytelnik::Zwroc(wybor);
+                        aktualny->Karta_czytelnika->rozpocznij_rezerwacje(wybor);
+                    }
+                    else {
+                        cout << "Nie ma wolnych egzemplarzy tej ksiazki" << endl;
+                    }
 
                 }               
                 else system("PASUSE");
             break;
         case 2:
-            Rezerwacja::Anuluj_rezerwacje();
+            //Rezerwacja::Anuluj_rezerwacje();
             break;
         case 3:
             //Rezerwacja:: sprawsz

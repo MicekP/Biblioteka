@@ -20,7 +20,7 @@ void Karta::wypisz() {
 	cout << "TWOJ NUMER KARTY TO: " << Numer << endl << endl;
 }
 
-void Karta::rozpocznij_rezerwacje() {
+void Karta::rozpocznij_rezerwacje(int wybor) {
 
 	int flaga = -1;
 
@@ -33,7 +33,7 @@ void Karta::rozpocznij_rezerwacje() {
 		}
 	}
 	if (flaga != -1) {
-		tab_rez[flaga].Rezerwuj();
+		tab_rez[flaga].Rezerwuj(wybor);
 	}
 	else
 		cout << "Wykorzystales juz wszystkie 3 rezerwacje" << endl; 
