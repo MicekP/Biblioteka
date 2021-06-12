@@ -163,13 +163,32 @@ void Ksiazka::Usun_egzemplarz()
 
 void Ksiazka::Wypisz_ksia()
 {
+    bool flaga = false;
+
     for (int i = 0; i < 10; i++)
     {
         if (tab_ksia[i].Tytul != "X" && tab_ksia[i].Autor != "Y Z")
+        {
             cout << tab_ksia[i].ID << " " << tab_ksia[i].Tytul << " " << tab_ksia[i].Autor << endl;
-        else
-            break;
+            flaga = true;
+        }                           
     }
+    if (flaga == false)
+        cout << "brak ksiazek w bibliotece" << endl;
+}
+
+bool Ksiazka::Czy_sa_ksiazki()
+{
+    bool flaga = false;
+
+    for (int i = 0; i < 10; i++)
+    {
+        if (tab_ksia[i].Tytul != "X" && tab_ksia[i].Autor != "Y Z")
+        {
+            flaga = true;
+        }
+    }    
+    return flaga;
 }
 
 Ksiazka* Ksiazka::Zwroc(int i)
