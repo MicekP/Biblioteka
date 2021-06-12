@@ -44,6 +44,7 @@ public:
 	}
 	
 	static void Dodaj();				// dodawanie pozycji, tytul, autor, ilosc
+	static void Dodaj(string,string,int);
 	static void Usun_egzemplarz();			//usuwanie po tytule i autorze, ilosc
 	static void Usun_egzemplarz_id();		// usuwanie po id, ilosc
 	static void Dodaj_egzemplarz(); 		// dodaj egzemplarz po autorze i tytule, ilosc

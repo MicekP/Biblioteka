@@ -45,13 +45,24 @@ void Czytelnik::Dodaj_czytelnik(string x, string y)
     if (licznik < 10)
     {
         tab_czyt[licznik] = Czytelnik(x, y);
+        tab_czyt[licznik].Karta_czytelnika = Karta::Utworz();
 
+        tab_czyt[licznik].Karta_czytelnika->wypisz();
         Licznik_add();
     }
 }
 
 Czytelnik* Czytelnik::Zwroc(int i){
     return &tab_czyt[i];
+}
+
+bool Czytelnik::Czy_istnieje(int i) {
+    if (tab_czyt[i].Imie == "X") {
+        return false;
+    }
+    else {
+        return true;
+    }
 }
 
 

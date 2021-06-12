@@ -30,6 +30,15 @@ void Ksiazka::Dodaj()
       }
 }
 
+void Ksiazka::Dodaj(string X, string Y, int Z)
+{
+    if (licznik < 10)
+    {
+        tab_ksia[licznik] = Ksiazka(X, Y, Z);
+        Licznik_add();
+    }
+}
+
 void Ksiazka::Dodaj_egzemplarz_id()
 {
     int X;
@@ -169,7 +178,7 @@ void Ksiazka::Wypisz_ksia()
     {
         if (tab_ksia[i].Tytul != "X" && tab_ksia[i].Autor != "Y Z")
         {
-            cout << tab_ksia[i].ID << " " << tab_ksia[i].Tytul << " " << tab_ksia[i].Autor << " wolnych egzemplarzy: " << tab_ksia[i].L_wolnych_egz << endl;
+            cout << i << ". ID:" << tab_ksia[i].ID << " tytul: " << tab_ksia[i].Tytul << ", autor: " << tab_ksia[i].Autor << " wolnych egzemplarzy: " << tab_ksia[i].L_wolnych_egz << endl;
             flaga = true;
         }                           
     }

@@ -38,3 +38,30 @@ void Karta::rozpocznij_rezerwacje(int wybor) {
 	else
 		cout << "Wykorzystales juz wszystkie 3 rezerwacje" << endl; 
 }
+
+void Karta::Anuluj_rezerwacje(int i) {
+	if (tab_rez[i].od_kiedy != 0) {
+		tab_rez[i].od_kiedy = 0;
+	}
+	else {
+		cout << "nie ma takiej rezerwacji" << endl;
+		system("PAUSE");
+	}
+
+}
+
+void Karta::Wypisz_rezerwacje() {
+
+	for (int i = 0; i < 3; i++) {
+		if  (tab_rez[i].od_kiedy != 0) {
+
+		char od_k[26];
+		ctime_s(od_k, sizeof od_k, &tab_rez[i].od_kiedy);
+
+		char do_k[26];
+		ctime_s(do_k, sizeof do_k, &tab_rez[i].do_kiedy);
+
+		cout << i << ". tytul: " << tab_rez[i].ktora_K->Tytul << endl << "od: " << od_k << "do: " << do_k << endl << endl;
+		}
+	}
+}

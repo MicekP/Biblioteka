@@ -43,6 +43,19 @@ void Zaloguj_obsluga()
             break;
         case 6:
             //Wypozyczanie
+            cout << "Ktory czytelnik chce wypozyczyc? " << endl << endl;
+            Czytelnik::Wypisz();
+            int wybor;
+            cin >> wybor;
+            cout << endl;
+            if (Czytelnik::Czy_istnieje(wybor) == true) {
+                Czytelnik* aktualny = Czytelnik::Zwroc(wybor);
+
+            }
+            else {
+                cout << "Nie ma takiego uzytkownika!" << endl;
+                system("PAUSE");
+            }
             break;
         case 7:
             Ksiazka::Wypisz_ksia();
@@ -56,6 +69,9 @@ void Zaloguj_obsluga()
 void Zaloguj_czytelnik(int zalogowany)
 {
     int U;
+    int wybor;
+    Czytelnik* aktualny = Czytelnik::Zwroc(zalogowany);
+    cout << "Jestes zalogowany na " << aktualny->GetImie() << " " << aktualny->GetNazwisko() << endl << endl;
 
     do {
         cout << "Czytelnik - dostepne dzialania:" << endl << "1. Rezerwuj ksiazke" << endl << "2. Anuluj rezerwacje" << endl <<
@@ -71,31 +87,33 @@ void Zaloguj_czytelnik(int zalogowany)
                 if (Ksiazka::Czy_sa_ksiazki() == true)
                 {   
                     cout << "Ktora ksiazke chcesz zarezerwowac" << endl;
-                    int wybor;
                     cin >> wybor;
                     if (Ksiazka::Czy_wolna(wybor) == true) {
-                        Czytelnik* aktualny = Czytelnik::Zwroc(wybor);
                         aktualny->Karta_czytelnika->rozpocznij_rezerwacje(wybor);
                     }
                     else {
                         cout << "Nie ma wolnych egzemplarzy tej ksiazki" << endl;
                     }
-
+                    system("PAUSE");
                 }               
-                else system("PASUSE");
+                else system("PAUSE");
             break;
         case 2:
-            //Rezerwacja::Anuluj_rezerwacje();
+            cout << "ktora rezerwacje chcesz anulowac?: " << endl;
+            aktualny->Karta_czytelnika->Wypisz_rezerwacje();
+            cout << endl << "podaj numer: ";
+            cin >> wybor;
+            aktualny->Karta_czytelnika->Anuluj_rezerwacje(wybor);
             break;
-        case 3:
-            //Rezerwacja:: sprawsz
+        case 3:            
+            aktualny->Karta_czytelnika->Wypisz_rezerwacje();
+            system("PAUSE");
             break;
         case 4:
             //sprawdz wypozyczenia
             break;
         default:
             break;
-
         }
     } while (U != 0);
 }
@@ -120,7 +138,13 @@ void Zaloguj_wybor()
         cout << endl;
         int zalogowany;
         cin >> zalogowany;
-        Zaloguj_czytelnik(zalogowany-1); //-1 bo uzytkownicy widza od i+1
+        if (Czytelnik::Czy_istnieje(zalogowany) == true) {
+        Zaloguj_czytelnik(zalogowany);
+        }
+        else {
+            cout << "Nie ma takiego uzytkownika!" << endl;
+            system("PAUSE");
+        }
         break;
     case 3:
         Czytelnik::Dodaj_czytelnik();
@@ -169,6 +193,9 @@ void Menu()
 
 int main()
 {
+    Czytelnik::Dodaj_czytelnik("Piotr", "Micek");
+    Ksiazka::Dodaj("C++", "Ktostam", 5);
+    Ksiazka::Dodaj("Visual", "Nikt", 1);
     Menu();
 }
 

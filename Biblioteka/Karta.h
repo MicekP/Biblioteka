@@ -18,6 +18,8 @@ public:
 	static Karta* Utworz();
 	void wypisz();
 	void rozpocznij_rezerwacje(int);
+	void Anuluj_rezerwacje(int);
+	void Wypisz_rezerwacje();
 };
 
 #endif // !Kartah

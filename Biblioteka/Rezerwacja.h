@@ -1,5 +1,6 @@
 #ifndef Rezerwacjah
 #define Rezerwacjah
+#include "Ksiazka.h"
 
 #include <iostream>
 #include <time.h>
@@ -10,19 +11,20 @@ class Rezerwacja {
 	static int wolny_numer;
 public:
 	int numer;
-	int ID_ksiazki;
+	Ksiazka* ktora_K;
 	time_t od_kiedy;
 	time_t do_kiedy;
 
 	Rezerwacja() {
+		ktora_K = NULL;
 		numer = 0;
-		ID_ksiazki = 0;
 		od_kiedy = 0;
 		do_kiedy = 0;
 	}
 
 	 void Rezerwuj(int);
 	 void Anuluj_rezerwacje();
+	 static void Wypisz();
 };
 
 #endif // !Rezerwacjah
