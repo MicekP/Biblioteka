@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Rezerwacja.h"
 
 #ifndef Kartah
 #define Kartah
@@ -10,12 +11,13 @@ private:
 	static int licznik; // kontroluje czy zmiesci sie w tablicy
 public:
 	int Numer;   //po prostu ID, moze nazwac to ID?
-	//Rezerwacja tab[3];  pozniej bedzie do rezerwacji
+	Rezerwacja tab_rez[3];  
 	//Wypozyczenie tab[3]; pozniej bedzie do wypozyczen, wydaje mi sie, ze na logike to powinno byc na stosie zrobione
 
 	Karta();
 	static Karta* Utworz();
 	void wypisz();
+	void rozpocznij_rezerwacje();
 };
 
 #endif // !Kartah

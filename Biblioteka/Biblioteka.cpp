@@ -5,6 +5,7 @@
 #include <string>
 #include "Aktorzy.h"
 #include "Ksiazka.h"
+#include "Rezerwacja.h"
 
 void Czytelnik_nowy_karta() {
     Czytelnik::Dodaj_czytelnik();
@@ -66,13 +67,24 @@ void Zaloguj_czytelnik(int zalogowany)
         case 0:
             break;
         case 1:
-            //rezerwacja
+            Ksiazka::Wypisz_ksia();            
+                if (Ksiazka::Czy_sa_ksiazki() == true)
+                {   
+                    cout << "Ktora ksiazke chcesz zarezerwowac" << endl;
+                    Czytelnik* aktualny = Czytelnik::Zwroc(zalogowany);
+                    aktualny->Karta_czytelnika.
+
+                }               
+                else system("PASUSE");
             break;
         case 2:
-            //anuluj rezerwacje
+            Rezerwacja::Anuluj_rezerwacje();
             break;
         case 3:
-            //sprawdz rezerwacje
+            //Rezerwacja:: sprawsz
+            break;
+        case 4:
+            //sprawdz wypozyczenia
             break;
         default:
             break;

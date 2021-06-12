@@ -19,3 +19,22 @@ Karta* Karta::Utworz() {
 void Karta::wypisz() {
 	cout << "TWOJ NUMER KARTY TO: " << Numer << endl << endl;
 }
+
+void Karta::rozpocznij_rezerwacje() {
+
+	int flaga = -1;
+
+	for (int i = 0; i < 3; i++)
+	{
+		if (tab_rez[i].od_kiedy == 0)
+		{
+			flaga = i;
+			break;
+		}
+	}
+	if (flaga != -1) {
+		tab_rez[flaga].Rezerwuj();
+	}
+	else
+		cout << "Wykorzystales juz wszystkie 3 rezerwacje" << endl; 
+}

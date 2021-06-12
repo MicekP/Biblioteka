@@ -50,6 +50,7 @@ public:
 	static void Dodaj_egzemplarz_id();		// dodaj po id, ilosc
 	static void Wypisz_ksia();		//wypisz liste ksiazek
 	static Ksiazka* Zwroc(int);
+	static bool Czy_sa_ksiazki(); // sprawdza czy sa ksiazki
 };
 
 #endif // !Ksiazkah
