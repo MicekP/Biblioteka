@@ -50,6 +50,10 @@ void Czytelnik::Dodaj_czytelnik(string x, string y)
     }
 }
 
+Czytelnik* Czytelnik::Zwroc(int i) {
+    return &tab_czyt[i];
+}
+
 
 Obsluga tab_obs[10];
 int Obsluga::licznik = 0;

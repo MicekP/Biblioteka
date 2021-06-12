@@ -5,6 +5,7 @@
 #include <time.h>
 using namespace std;
 
+
 class Rezerwacja {
 public:
 	int numer;
@@ -12,8 +13,13 @@ public:
 	time_t od_kiedy;
 	time_t do_kiedy;
 
-	static void Rezerwuj();
-	static void Anuluj_rezerwacje();
+	Rezerwacja() {
+		od_kiedy = 0;
+		do_kiedy = 0;
+	}
+
+	 void Rezerwuj();
+	 void Anuluj_rezerwacje();
 };
 
 #endif // !Rezerwacjah

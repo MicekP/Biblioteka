@@ -53,7 +53,7 @@ public:
 
     static void Dodaj_czytelnik();
     static void Dodaj_czytelnik(string, string); //od razu podajemy imie i nazwisko
-
+    static Czytelnik* Zwroc(int);
     static void Wypisz();
 };
 

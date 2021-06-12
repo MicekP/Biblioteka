@@ -67,8 +67,15 @@ void Zaloguj_czytelnik(int zalogowany)
         case 0:
             break;
         case 1:
-            Ksiazka::Wypisz_ksia();
-            Rezerwacja::Rezerwuj();
+            Ksiazka::Wypisz_ksia();            
+                if (Ksiazka::Czy_sa_ksiazki() == true)
+                {   
+                    cout << "Ktora ksiazke chcesz zarezerwowac" << endl;
+                    Czytelnik* aktualny = Czytelnik::Zwroc(zalogowany);
+                    aktualny->Karta_czytelnika.
+
+                }               
+                else system("PASUSE");
             break;
         case 2:
             Rezerwacja::Anuluj_rezerwacje();
