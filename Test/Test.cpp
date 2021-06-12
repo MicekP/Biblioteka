@@ -20,7 +20,19 @@ namespace Test
 			Assert::AreEqual(Test.Nazwisko, testn);
 		}
 
+		TEST_METHOD(TestObsluga)
+		{
+			Obsluga Test("Adam", "Nowak");
+			string testi = "Adam";
+			string testn = "Nowak";
 
+			Assert::AreEqual(Test.Imie, testi);
+			Assert::AreEqual(Test.Nazwisko, testn);
+		}
 
+		TEST_METHOD(TestKsiazka)
+		{
+
+		}
 	};
 }
