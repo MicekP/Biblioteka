@@ -2,6 +2,7 @@
 #include "CppUnitTest.h"
 #include "../Biblioteka/Aktorzy.h"
 #include "../Biblioteka/Ksiazka.h"
+#include "../Biblioteka/Ksiazka.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -30,7 +31,7 @@ namespace Test
 			Assert::AreEqual(Test.Imie, testi);
 			Assert::AreEqual(Test.Nazwisko, testn);
 		}
-
+		
 		TEST_METHOD(TestKsiazka)
 		{
 			Ksiazka Test("Test", "Jan Kowalski", 1);
@@ -42,5 +43,6 @@ namespace Test
 			Assert::AreEqual(Test.Autor, testa);
 			Assert::AreEqual(Test.L_egz, testl);
 		}
+		
 	};
 }
