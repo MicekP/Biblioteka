@@ -83,8 +83,10 @@ public:
     ~Obsluga() {};
 
     static void Dodaj_obsluga();
-
+    static void Dodaj_obsluga(string, string);
+    static bool Czy_istnieje(int);
     static void Wypisz();
+    static Obsluga* Zwroc(int);
 
 };
 

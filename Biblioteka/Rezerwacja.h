@@ -23,8 +23,6 @@ public:
 	}
 
 	 void Rezerwuj(int);
-	 void Anuluj_rezerwacje();
-	 static void Wypisz();
 };
 
 #endif // !Rezerwacjah
