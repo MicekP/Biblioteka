@@ -50,7 +50,7 @@ void Czytelnik::Dodaj_czytelnik(string x, string y)
     }
 }
 
-Czytelnik* Czytelnik::Zwroc(int i) {
+Czytelnik* Czytelnik::Zwroc(int i){
     return &tab_czyt[i];
 }
 

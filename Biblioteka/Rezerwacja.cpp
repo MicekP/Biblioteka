@@ -2,25 +2,21 @@
 #include "Ksiazka.h"
 #include <time.h>
 
+int Rezerwacja::wolny_numer = 1000;
 
-void Rezerwacja::Rezerwuj() {
+void Rezerwacja::Rezerwuj(int wybor){
 	
-		
-
-		int a;
-		time_t b;
-		time_t c;
-		
-		cout << "Podaj id ksiazki jaka chcesz zarezerwowac :" << endl;
-		cin >> a;
-
-		cout << "Podaj od kiedy chcesz ja zarezerwowac: " << endl;
-		cin >> b;
-
-		cout << "Podaj do kiedy chcesz ja zarezerwowac: " << endl;
-		cin >> c;
-	
-
+	Ksiazka *K = Ksiazka::Zwroc(wybor);
+	K->Usun_egzemplarz();
+	time(&od_kiedy);
+	cout << "Ile tygodni rezerwowac?" << endl;
+	int tydzien;
+	cin >> tydzien;
+	int t_sekundy = tydzien * 7 * 24 * 60 * 60;
+	do_kiedy = do_kiedy + t_sekundy;
+	ID_ksiazki = K->ID;
+	numer = wolny_numer;
+	wolny_numer++;
 }
 
 void Rezerwacja::Anuluj_rezerwacje() {

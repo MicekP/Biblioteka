@@ -169,7 +169,7 @@ void Ksiazka::Wypisz_ksia()
     {
         if (tab_ksia[i].Tytul != "X" && tab_ksia[i].Autor != "Y Z")
         {
-            cout << tab_ksia[i].ID << " " << tab_ksia[i].Tytul << " " << tab_ksia[i].Autor << endl;
+            cout << tab_ksia[i].ID << " " << tab_ksia[i].Tytul << " " << tab_ksia[i].Autor << " wolnych egzemplarzy: " << tab_ksia[i].L_wolnych_egz << endl;
             flaga = true;
         }                           
     }
@@ -189,6 +189,13 @@ bool Ksiazka::Czy_sa_ksiazki()
         }
     }    
     return flaga;
+}
+
+bool Ksiazka::Czy_wolna(int i) {
+    if (tab_ksia[i].L_wolnych_egz > 0) {
+        return true;
+    }
+    else return false;
 }
 
 Ksiazka* Ksiazka::Zwroc(int i)

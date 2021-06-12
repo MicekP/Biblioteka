@@ -17,7 +17,7 @@ public:
 	Karta();
 	static Karta* Utworz();
 	void wypisz();
-	void rozpocznij_rezerwacje();
+	void rozpocznij_rezerwacje(int);
 };
 
 #endif // !Kartah
