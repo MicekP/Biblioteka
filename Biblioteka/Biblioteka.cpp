@@ -72,7 +72,7 @@ void Zaloguj_czytelnik(int zalogowany)
                 {   
                     cout << "Ktora ksiazke chcesz zarezerwowac" << endl;
                     Czytelnik* aktualny = Czytelnik::Zwroc(zalogowany);
-                    aktualny->Karta_czytelnika.
+                    aktualny->Karta_czytelnika->rozpocznij_rezerwacje();
 
                 }               
                 else system("PASUSE");

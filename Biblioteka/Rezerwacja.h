@@ -19,7 +19,7 @@ public:
 	}
 
 	 void Rezerwuj();
-	 void Anuluj_rezerwacje();
+	 void static Anuluj_rezerwacje();
 };
 
 #endif // !Rezerwacjah
