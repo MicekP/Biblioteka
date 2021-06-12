@@ -8,8 +8,8 @@ using namespace std;
 
 class Rezerwacja {
 public:
-	int numer;
-	int ID_ksiazki;
+	int numer = 0;
+	int ID_ksiazki = 0;
 	time_t od_kiedy;
 	time_t do_kiedy;
 

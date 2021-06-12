@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include "../Biblioteka/Aktorzy.h"
+#include "../Biblioteka/Ksiazka.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -32,7 +33,14 @@ namespace Test
 
 		TEST_METHOD(TestKsiazka)
 		{
+			Ksiazka Test("Test", "Jan Kowalski", 1);
+			string testt = "Test";
+			string testa = "Jan Kowalski";
+			int testl = 1;
 
+			Assert::AreEqual(Test.Tytul, testt);
+			Assert::AreEqual(Test.Autor, testa);
+			Assert::AreEqual(Test.L_egz, testl);
 		}
 	};
 }
