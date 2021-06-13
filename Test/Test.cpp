@@ -3,6 +3,9 @@
 #include "../Biblioteka/Aktorzy.h"
 #include "../Biblioteka/Ksiazka.h"
 #include "../Biblioteka/Ksiazka.cpp"
+#include "../Biblioteka/Karta.h"
+#include "../Biblioteka/Rezerwacja.h"
+#include "../Biblioteka/Wypozyczenie.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -44,40 +47,30 @@ namespace Test
 			Assert::AreEqual(Test.L_egz, testl);
 		}
 
-		TEST_METHOD(TestKarta)
-		{
-			Karta Test("Test", "Jan Kowalski", 1);
-			string testt = "Test";
-			string testa = "Jan Kowalski";
-			int testl = 1;
-
-			Assert::AreEqual(Test.wolneID, testt);
-			Assert::AreEqual(Test.licznik, testa);
-		}
-		
-		TEST_METHOD(TestRezerwacja)
-		{
-			Rezerwacja Test("Test", "Adam Nowacki", 1);
-			string testt = "Test";
-			string testa = "Adam Nowacki";
-			int testl = 1;
-
-			Assert::AreEqual(Test.Od_kiedy, testt);
-			Assert::AreEqual(Test.Do_kiedy, testa);
-
-		}
-
 		TEST_METHOD(TestWypozyczenie)
 		{
-			Wypozyczenie Test("Test", "Janusz Kowal", 1);
-			string testt = "Test";
-			string testa = "Janusz Kowal";
-			int testl = 1;
+			Wypozyczenie Test;
+			time_t Od = 0;
+			time_t Do = 0;
+			bool zw = false;
 
-			Assert::AreEqual(Test.Od_kiedy, testt);
-			Assert::AreEqual(Test.Do_kiedy, testa);
-			Assert::AreEqual(Test.zwrocona, testl);
 			
+			Assert::AreEqual(Test.od_kiedy, Od);
+			Assert::AreEqual(Test.do_kiedy, Do);
+			Assert::AreEqual(Test.zwrocona, zw);
+			
+		}
+
+		TEST_METHOD(TestRezerwacja)
+		{
+			Rezerwacja Test;
+			time_t Od = 0;
+			time_t Do = 0;
+			int n = 0;
+
+			Assert::AreEqual(Test.od_kiedy, Od);
+			Assert::AreEqual(Test.do_kiedy, Do);
+			Assert::AreEqual(Test.numer, n);
 		}
 	};
 }
