@@ -23,7 +23,7 @@ public:
 	}
 
 	 void Rezerwuj(int);
-	 void Anuluj_rezerwacje();
+	 //void Anuluj_rezerwacje();
 	 static void Wypisz();
 };
 

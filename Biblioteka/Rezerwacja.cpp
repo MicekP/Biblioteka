@@ -20,9 +20,10 @@ void Rezerwacja::Rezerwuj(int wybor){
 }
 
 
-void Rezerwacja::Anuluj_rezerwacje() {
+/*void Rezerwacja::Anuluj_rezerwacje() 
+{
 
 }
-
+*/
 
 
