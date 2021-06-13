@@ -20,8 +20,7 @@ public:
 	}
 	void wypozycz();
 	void Wypozycz_z_rezerwacja(Ksiazka*);
-	void Zwrot();						//idea byla taka ze zwraca kare, ale to chyba nie ma sensu, chyba ze bedzie gdzies zapisywane, moze po prostu wyswietlic "kara taka i taka" i elo
-	//void Nalicz_kare();					//tutaj w sumie mogloby byc wypisana jaka kara, albo w ogole to usunac, bo ta funkcja sie nie przyda inaczej niz do uzycia w zwrot
+	void Zwrot();						
 };
 
 #endif // !Wypozyczenieh
