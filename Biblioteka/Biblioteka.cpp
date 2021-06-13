@@ -12,14 +12,17 @@ void Czytelnik_nowy_karta() {
 
 }
 
-void Zaloguj_obsluga()
+void Zaloguj_obsluga(int zalogowany)
 {
     int U;
+    Obsluga* aktualny = Obsluga::Zwroc(zalogowany);
+    cout << "Jestes zalogowany na " << aktualny->GetImie() << " " << aktualny->GetNazwisko() << endl << endl;
 
     do {
+        system("cls");
         cout << "Obsluga - dostepne dzialania:" << endl << "1. Dodaj nowa ksiazke" << endl << "2. Dodaj egz istniejacej ksiazki po tytule i autorze" << endl <<
             "3. Dodaj egz istniejacej ksiazki po ID" << endl << "4. Usun egz istniejacej ksiazki po tytule i autorze" << endl <<
-            "5. Usun egz istniejacej ksiazki po ID" << endl << "7. Wypisz liste ksiazek" << endl << "6. Wypozyczenie ksiazki czytelnikowi" << endl << "0. //Wyloguj//" << endl;
+            "5. Usun egz istniejacej ksiazki po ID" << endl << "6. Wypozyczenie ksiazki czytelnikowi" << endl << "7. Zwrot ksiazki przez czytelnika" << "8. Wypisz liste ksiazek" << endl << "0. //Wyloguj//" << endl;
         cin >> U;
 
         switch (U)
@@ -28,21 +31,25 @@ void Zaloguj_obsluga()
             break;
         case 1:
             Ksiazka::Dodaj();
+            system("PAUSE");
             break;
         case 2:
             Ksiazka::Dodaj_egzemplarz();
+            system("PAUSE");
             break;
         case 3:
             Ksiazka::Dodaj_egzemplarz_id();
+            system("PAUSE");
             break;
         case 4:
             Ksiazka::Usun_egzemplarz();
+            system("PAUSE");
             break;
         case 5:
             Ksiazka::Usun_egzemplarz_id();
+            system("PAUSE");
             break;
         case 6:
-            //Wypozyczanie
             cout << "Ktory czytelnik chce wypozyczyc? " << endl << endl;
             Czytelnik::Wypisz();
             int wybor;
@@ -50,7 +57,7 @@ void Zaloguj_obsluga()
             cout << endl;
             if (Czytelnik::Czy_istnieje(wybor) == true) {
                 Czytelnik* aktualny = Czytelnik::Zwroc(wybor);
-
+                aktualny->Karta_czytelnika->rozpocznij_wypozyczenie();
             }
             else {
                 cout << "Nie ma takiego uzytkownika!" << endl;
@@ -58,7 +65,22 @@ void Zaloguj_obsluga()
             }
             break;
         case 7:
+            cout << "Ktory czytelnik chce zwrocic? " << endl << endl;
+            Czytelnik::Wypisz();
+            cin >> wybor;
+            cout << endl;
+            if (Czytelnik::Czy_istnieje(wybor) == true) {
+                Czytelnik* aktualny = Czytelnik::Zwroc(wybor);
+                aktualny->Karta_czytelnika->rozpocznij_zwrot();
+            }
+            else {
+                cout << "Nie ma takiego uzytkownika!" << endl;
+                system("PAUSE");
+            }
+            break;
+        case 8:
             Ksiazka::Wypisz_ksia();
+            system("PAUSE");
             break;
         default:
             break;
@@ -74,8 +96,9 @@ void Zaloguj_czytelnik(int zalogowany)
     cout << "Jestes zalogowany na " << aktualny->GetImie() << " " << aktualny->GetNazwisko() << endl << endl;
 
     do {
+        system("cls");
         cout << "Czytelnik - dostepne dzialania:" << endl << "1. Rezerwuj ksiazke" << endl << "2. Anuluj rezerwacje" << endl <<
-            "3. Sprawdz rezerwacje" << endl << "0. //Wyloguj//" << endl;
+            "3. Sprawdz rezerwacje" << endl << "4. Sprawdz wypozyczenia" << endl << "0. //Wyloguj//" << endl;
         cin >> U;
 
         switch (U)
@@ -94,9 +117,8 @@ void Zaloguj_czytelnik(int zalogowany)
                     else {
                         cout << "Nie ma wolnych egzemplarzy tej ksiazki" << endl;
                     }
-                    system("PAUSE");
                 }               
-                else system("PAUSE");
+                system("PAUSE");
             break;
         case 2:
             cout << "ktora rezerwacje chcesz anulowac?: " << endl;
@@ -110,7 +132,8 @@ void Zaloguj_czytelnik(int zalogowany)
             system("PAUSE");
             break;
         case 4:
-            //sprawdz wypozyczenia
+            aktualny->Karta_czytelnika->Wypisz_wypozyczenia();
+            system("PAUSE");
             break;
         default:
             break;
@@ -120,8 +143,9 @@ void Zaloguj_czytelnik(int zalogowany)
 
 void Zaloguj_wybor()
 {
+    system("cls");
     int U;
-
+    int zalogowany;
     cout << "Logowanie jako:" << endl << "1. Obsluga" << endl << "2. Czytelnik" << endl << "3. Nowy czytelnik - tworzenie karty" << endl << "0. Powrot" << endl;
     cin >> U;
 
@@ -130,13 +154,22 @@ void Zaloguj_wybor()
     case 0:
         break;
     case 1:
-        Zaloguj_obsluga();
+        cout << "Na ktorego uzytkownika chcesz sie zalogowac?" << endl << endl;
+        Obsluga::Wypisz();
+        cout << endl;
+        cin >> zalogowany;
+        if (Obsluga::Czy_istnieje(zalogowany) == true) {
+        Zaloguj_obsluga(zalogowany);
+        }
+        else {
+            cout << "Nie ma takiego uzytkownika!" << endl;
+            system("PAUSE");
+        }
         break;
     case 2:
         cout << "Na ktorego uzytkownika chcesz sie zalogowac?" << endl << endl;
         Czytelnik::Wypisz();
-        cout << endl;
-        int zalogowany;
+        cout << endl;       
         cin >> zalogowany;
         if (Czytelnik::Czy_istnieje(zalogowany) == true) {
         Zaloguj_czytelnik(zalogowany);
@@ -194,8 +227,9 @@ void Menu()
 int main()
 {
     Czytelnik::Dodaj_czytelnik("Piotr", "Micek");
-    Ksiazka::Dodaj("C++", "Ktostam", 5);
-    Ksiazka::Dodaj("Visual", "Nikt", 1);
+    Obsluga::Dodaj_obsluga("Zbigniew", "Madry");
+    Ksiazka::Dodaj("Przewodnik C++", "Alex Allain", 5);
+    Ksiazka::Dodaj("Pan Tadeusz", "Adam Mickiewicz", 1);
     Menu();
 }
 

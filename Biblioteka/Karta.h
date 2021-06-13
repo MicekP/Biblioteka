@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Rezerwacja.h"
+#include "Wypozyczenie.h"
 
 #ifndef Kartah
 #define Kartah
@@ -12,14 +13,19 @@ private:
 public:
 	int Numer;   //po prostu ID, moze nazwac to ID?
 	Rezerwacja tab_rez[3];  
-	//Wypozyczenie tab[3]; pozniej bedzie do wypozyczen, wydaje mi sie, ze na logike to powinno byc na stosie zrobione
+	Wypozyczenie tab_wyp[10]; 
 
 	Karta();
 	static Karta* Utworz();
 	void wypisz();
 	void rozpocznij_rezerwacje(int);
 	void Anuluj_rezerwacje(int);
+	bool Czy_jest_rezerwacja(int);
 	void Wypisz_rezerwacje();
+	void rozpocznij_wypozyczenie();
+	void Wypisz_wypozyczenia();
+	void rozpocznij_zwrot();
+	bool Czy_jest_wyporzyczenie(int);
 };
 
 #endif // !Kartah

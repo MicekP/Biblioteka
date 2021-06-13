@@ -35,6 +35,7 @@ void Czytelnik::Dodaj_czytelnik()
     }
     else {
         cout << "ERROR: MAKSYMALNA LICZBA UZYTOWNIKOW" << endl;
+        system("PAUSE");
     }
 
 
@@ -57,11 +58,13 @@ Czytelnik* Czytelnik::Zwroc(int i){
 }
 
 bool Czytelnik::Czy_istnieje(int i) {
-    if (tab_czyt[i].Imie == "X") {
-        return false;
-    }
-    else {
-        return true;
+    if (i >= 0 && i < 10) {
+        if (tab_czyt[i].Imie == "X") {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }
 
@@ -87,16 +90,42 @@ void Obsluga::Dodaj_obsluga()
     }
 }
 
+void Obsluga::Dodaj_obsluga(string x, string y) {
+    if (licznik < 10)
+    {
+        tab_obs[licznik] = Obsluga(x, y);
+
+        Licznik_add();
+    }
+    else {
+        cout << "ERROR: pelna tablica pracownikow" << endl;
+        system("PAUSE");
+    }
+}
+
 void Obsluga::Wypisz()
 {
     for (int i = 0; i < 10; i++)
     {
         if (tab_obs[i].Imie != "X")
-            cout << tab_obs[i].GetImie() << " " << tab_obs[i].GetNazwisko() << endl;
+            cout << i << ". " << tab_obs[i].GetImie() << " " << tab_obs[i].GetNazwisko() << endl;
         else
             break;
     }
 }
+
+bool Obsluga::Czy_istnieje(int i) {
+    if (i >= 0 && i < 10) {
+        if (tab_obs[i].Imie == "X") return false;
+        else return true;
+    }
+    return false;
+}
+
+Obsluga* Obsluga::Zwroc(int i) {
+    return &tab_obs[i];
+}
+
 
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania

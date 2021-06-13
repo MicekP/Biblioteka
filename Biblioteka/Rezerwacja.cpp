@@ -1,5 +1,4 @@
 #include "Rezerwacja.h"
-#include "Ksiazka.h"
 #include <time.h>
 
 int Rezerwacja::wolny_numer = 1000;
@@ -19,11 +18,5 @@ void Rezerwacja::Rezerwuj(int wybor){
 	wolny_numer++;
 }
 
-
-/*void Rezerwacja::Anuluj_rezerwacje() 
-{
-
-}
-*/
 
 
